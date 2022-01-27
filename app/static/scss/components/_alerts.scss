@@ -1,0 +1,11 @@
+@use '../custom' as *;
+
+.top-alert {
+    position: fixed; 
+    top: 2rem;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 65%;
+    margin: auto;
+}

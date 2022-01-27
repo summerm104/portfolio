@@ -1,0 +1,49 @@
+@use '../custom' as *;
+
+.blog_post {
+    padding: 6rem 0;
+}
+
+.posts {
+    position: relative;
+    padding: 1rem 0;
+
+    &--content {
+        padding: 1rem;
+        margin-top: 0rem;
+
+        p {
+            font-size: 0.9rem;
+            font-family: serif;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 1.05rem;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 5rem;
+        }
+
+        i {
+            font-size: 1.5rem;
+            color: $primary;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2.5rem;
+            }
+        }
+    }
+
+    &--img {
+        max-width: 100%;
+    }
+}
+
+#comment-input {
+    height: 8rem;
+}
+
+// .card-body-commnt {
+//     padding: ;
+// }

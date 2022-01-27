@@ -1,0 +1,21 @@
+@use '../custom' as *;
+
+.footer {
+    padding: 1.5rem 0;
+    background-color: $primary;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 4.5rem;
+
+    p {
+        font-family: serif;
+        color: $white;
+
+        a {
+            color: $white;
+            text-decoration: none;
+        }
+    } 
+}

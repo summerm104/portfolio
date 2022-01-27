@@ -1,0 +1,282 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container padding-bottom">
+    <!-- POST INTRO BANNER -->
+    <div class="top-padding">
+        <div class="post-intro-banner w-100 d-flex justify-content-center align-items-center">
+            <p class="post_description">{{ post.description }}</p>
+        </div>
+    </div>
+    <!-- POST BODY -->
+    <div class="wrapper d-flex mt-5">
+        <!-- SIDEBAR -->
+        {% if post.id == 1 %}
+        <div class="sidebar-wrapper  bg-light">
+            <h3 class="poppins-600 border-bottom m-3">Get To Know Me</h3>
+            <div class="subnav m-3">
+                <a href="#about-programming"><i class="fas fa-code me-1"></i>Programming Experience</a>
+                <a href="#about-professional"><i class="fas fa-briefcase me-1"></i>Professional Experience</a>
+                <a href="#about-skills"><i class="fab fa-python me-1"></i>Skills</a>
+                <a href="#about-education"><i class="fas fa-graduation-cap me-1"></i>Education</a>
+            </div>
+            <h3 class="poppins-600 border-bottom m-3 mt-5">Trusted By</h3>
+            <div class="subnav text-center">
+                {% for image in post.images %}
+                <a href="{{image.href}}"><img src="{{url_for('static', filename='images/post_img/' + image.filename)}}" alt="previous employer"></a>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% elif post.id == 2 %}
+        <div class="sidebar-wrapper  bg-light">
+            <h3 class="poppins-600 border-bottom m-3">Portfolio</h3>
+            {% for image in post.images %}
+            <div class="subnav-box shadow">
+                <img src="{{url_for('static', filename='images/post_img/' + image.filename)}}" alt="project image">
+                <a href="{{image.href}}">
+                    <div class="subnav-info">
+                        <h4 class="caption">{{ image.caption }}</h4>
+                    </div>
+                </a> 
+            </div>
+            {% endfor %}
+        </div>
+        {% elif post.id == 3 %}
+        <div class="sidebar-wrapper bg-light">
+            <h3 class="poppins-600 border-bottom m-3">Technical Skills</h3>
+            <!-- PROGRESS LINE -->
+            <div class="progress-section">
+                <h3 class="progress-title font-courgette">Code</h3>
+                <div class="progress-wrapper">
+                    <label>Python</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-wrapper">
+                    <label>HTML & CSS</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-wrapper">
+                    <label>JavaScript</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-wrapper">
+                    <label>SQL</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-wrapper">
+                    <label>C</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div> 
+            <div class="progress-section">
+                <h3 class="progress-title font-courgette">Tools</h3>
+                <div class="progress-wrapper">
+                    <label>Flask</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-wrapper">
+                    <label>Bootstrap 5</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 48%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-wrapper">
+                    <label>SCSS</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-wrapper">
+                    <label>MySQL</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-wrapper">
+                    <label>Git</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-wrapper">
+                    <label>jQuery</label>
+                    <div class="progress progress-height">
+                        <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        {% else %}
+        <div class="sidebar-wrapper"></div>
+        {% endif %}
+
+        <!-- POST MAIN CONTENT -->
+        <div class="right-section mr-3">
+            <!-- POST SECTION -->
+            <div class="mb-1">
+                <h1 class="post_title poppins-600">{{ post.title }}</h1>
+                <section class="detailed_description">{{ post.content|safe }}</section>
+            </div>
+            <!-- LIKES AND AVERAGE RATING SCORE -->
+            <div class="d-flex justify-content-between">
+                <!-- AVERAGE RATING SCORE -->
+                <div class="mb-2" id="average-rating">
+                    <span class="poppins-500">Average Rating: </span>
+                    <div class="star-outer">
+                        <div class="star-inner"></div>
+                    </div>
+                    <span class="poppins-500" id="number-rating">{{ average_rating }}</span>
+                </div>
+                <!-- LIKES -->
+                <div class="likes">
+                    {% if current_user.is_authenticated %}
+                        {% if current_user.id in post.likes|map(attribute="author_id")|list %}
+                        <i class="fas fa-thumbs-up" id="like-btn" onclick="like({{post.id}})"></i>
+                        {% else %}
+                        <i class="far fa-thumbs-up" id="like-btn" onclick="like({{post.id}})"></i>
+                        {% endif %}
+                    {% else %}
+                    <a class="me-1" href="{{url_for('login')}}">Login to Like the Post!</a>
+                    <i class="far fa-thumbs-up" id="like-btn-disabled"></i>
+                    {% endif %}
+                    <span class="poppins-500" id="like-count">{{ post.likes|length }}</span>
+                </div>
+            </div>
+            
+            <!-- COMMENT SECTION -->
+            <!-- CREATE COMMENTS-->
+            <div class="card mt-5">
+                <div class="card-header">Rate and Comment</div>
+                <div class="card-body">
+                    <form method="POST" action="/create-comment/{{ post.id }}" id="comment-{{ post.id }}" class="needs-validation" novalidate>
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                        <div class="post_rating mb-2 d-flex justify-content-end">
+                            <input class="" type="text" id="rating-score" name="rating_score" required>
+                            <div class="invalid-feedback text-end flex-sm-shrink-0">Please rate the post.</div>
+                            <div class="rating-stars text-end ps-2 flex-shrink-0" id="ratingStars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>  
+                        </div>
+                        {% if current_user.is_authenticated %}
+                        <textarea class="comment_text form-control" id="comment-input" name="comment_input" placeholder="What do you think of the post?" required></textarea>
+                        <div class="invalid-feedback">Please enter your comment.</div>
+                        <div class="mt-3 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary" onclick="">Comment</button>
+                        </div>
+                        {% else %}
+                        <textarea class="comment_text form-control" id="comment-input" name="comment_input" placeholder="What do you think of the post?" disabled></textarea>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <a href="{{ url_for('login') }}">Login to Comment!</a>
+                            </small>
+                            <button type="button" class="btn btn-primary" disabled>Comment</button>
+                        </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+            <!-- VIEW COMMENTS -->
+            {% if post.comments|length > 0 %}
+            <div class="accordion mb-2" id="accordionComment">
+                <!-- ACCORDION BUTTON-->
+                <h2 class="accordion-header mt-3" id="commentHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comments" aria-expanded="false" aria-controls="comments">
+                        View<span id="comment-count">{{post.comments|length}}</span>Comments
+                    </button>
+                </h2>
+                <!-- COMMENT CONTENT -->
+                <div id="comments" class="accordion-collapse collapse" aria-labelledby="commentHeading" data-bs-parent="#accordionComment">
+                    <div class="comment_text accordion-body" id="comments-expanded">
+                        {% for comment in comments %}
+                        <div class="comment-row border-bottom mb-1" id="comment-{{comment.id}}">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex">
+                                    <div class="me-2 comment-user">{{ comment.user.email }}</div>
+                                    {% if comment.rating == 1 %}
+                                    <div class="display-stars post_rating d-flex align-items-center" id="displayStars">
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    {% elif comment.rating == 2 %}
+                                    <div class="display-stars post_rating d-flex align-items-center" id="displayStars">
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    {% elif comment.rating == 3 %}
+                                    <div class="display-stars post_rating d-flex align-items-center" id="displayStars">
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    {% elif comment.rating == 4 %}
+                                    <div class="display-stars post_rating d-flex align-items-center" id="displayStars">
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    {% elif comment.rating == 5 %}
+                                    <div class="display-stars post_rating d-flex align-items-center" id="displayStars">
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                        <i class="fas fa-star active-star"></i>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    <small class="text-muted">{{ comment.date_created }}</small>
+                                    <!-- DELETE COMMENT -->
+                                    {% if current_user.id == comment.author_id %}
+                                    <i class="fas fa-trash-alt delete-comment" id="delete-btn-{{comment.id}}" onclick="deleteComment({{comment.id}})"></i>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <p class="mt-2 comment-content ow">{{ comment.content }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="text-muted mt-3 mb-3"><small>No Comments</small></div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='js/post_comment.js') }}"></script>
+<script src="{{ url_for('static', filename='js/post_likes.js') }}"></script>
+{% endblock %}

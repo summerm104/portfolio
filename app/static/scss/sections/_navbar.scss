@@ -1,0 +1,30 @@
+@use '../custom' as *;
+
+.menu {
+
+    li {
+        padding: 0 0.7rem;
+        
+        a {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+    }
+
+}
+
+.menu-btn {
+    margin: 0 0.7rem;
+}
+
+.menu-text {
+    color: black;
+}
+
+#pers_greet {
+    color: $gray-600;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0 0.7rem;
+}

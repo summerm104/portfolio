@@ -1,0 +1,22 @@
+@use '../custom' as *;
+
+.contact {
+    padding-top: 6rem;
+    padding-bottom: 10.5rem;
+
+    i {
+        font-size: 5rem;
+        margin-bottom: 1.5rem;
+        color: $primary;
+    }
+
+    h4 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+    }
+
+    p {
+        font-family: serif;
+    }
+}
+

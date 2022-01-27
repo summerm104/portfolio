@@ -1,0 +1,34 @@
+@use '../custom' as *;
+
+.rating-stars:hover i {
+    color: $yellow;
+}
+
+.rating-stars i {
+    color: $gray-300;
+    cursor: pointer;
+    &:hover ~ i {
+        color: $gray-300;
+    }
+    &.active-star {
+        color: $yellow;
+    }
+}
+
+.display-stars i {
+    color: $gray-300;
+
+    &.active-star {
+        color: $yellow;
+    }
+}
+
+#rating-score {
+    visibility: hidden;
+    width: 0%;
+}
+
+#comment-count {
+    display: inline-block;
+    padding: 0.2rem;
+}

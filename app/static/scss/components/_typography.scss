@@ -1,0 +1,152 @@
+@use '../custom' as *;
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+.display-2 {
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+
+    &--intro {
+       display: inline-block;
+       font-weight: 700; 
+       color: $white;
+       font-family: 'Poppins', sans-serif;
+    }
+
+    &--description {
+        font-family: 'Courgette', cursive;
+        font-size: 2rem;
+        display: block;
+        color: $white;
+        margin-top: 0.8rem;
+        text-transform: none;
+    }
+}
+
+// LOGIN / REGISTRATION FORM
+.display-form {
+    padding-top: 7rem;
+    padding-bottom: 7.5rem;
+
+    legend {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+
+    label {
+        font-family: 'Poppins', sans-serif;
+        margin-top: 0.5rem;
+    }
+}
+
+.form-btn {
+    margin-top: 1rem;
+}
+
+// HEADING LINE
+.heading-line::before {
+    content: "";
+    width: 10rem;
+    height: 0.1rem;
+    display: block;
+    margin: 0 auto;
+    background-color: $primary;
+}
+
+.heading-line::after {
+    content: "";
+    width: 2rem;
+    height: 0.2rem;
+    display: block;
+    padding-top: 0.5rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    background-color: $primary;
+}
+
+// FONTS
+.poppins-500 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.poppins-600 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.font-courgette {
+    font-family: 'Courgette', cursive;
+}
+
+// BORDER RIGHT
+.border-right {
+    border-right: 0.1rem solid $gray-300;
+}
+
+// DISPLAY 3
+.display-3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 3rem;
+
+    &--title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2rem;
+        text-transform: capitalize;
+        font-weight: 600;
+        display: inline-block;
+        color: $primary;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+// SELECT DROPDOWN
+.select-dropdown {
+    color: $gray-600;
+
+    #sort-posts {
+        border: none;
+        color: $gray-600;
+    }
+}
+
+// PREVENT POST PAGE CONTENT COVERED BY FOOTER
+.padding-bottom {
+    padding-bottom: 4.5rem;
+}
+
+// LOGIN ERROR
+.error-section {
+    padding-top: 4.5rem;
+    text-align: center;
+
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 1.5rem;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+.about-me {
+    padding: 6rem 0;
+
+    img {
+        width: 70%;
+    }
+}
+
+.projects {
+    padding: 6rem 0;
+}

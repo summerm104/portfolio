@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon.io -->
+    <!-- https://favicon.io/ -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='images/favicon/site.webmanifest') }}">
+    <!-- BOOTSTRAP AND CUSTOM CSS -->
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- FONTAWESOME -->
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.css') }}">
+    <!-- GOOGLE FONTS -->
+    <!-- https://fonts.google.com/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow menu" id="top_navig_bar">
+            <div class="container">
+                <!-- NAVBAR BRAND -->
+                <a class="navbar-brand" href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo_green_280x52.png') }}" alt="logo image">
+                </a>
+                <!-- TOGGLER BUTTON -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapseItems" aria-controls="navCollapseItems" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- NAVBAR ITEMS -->
+                <div class="collapse navbar-collapse" id="navCollapseItems">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-list">
+                        <li class="nav-item"><a class="nav-link home-section" id="home" href="{{ url_for('home') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link contact-section" id="contact" href="{{ url_for('home') }}#contact-section">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- PAGE MAIN CONTENT -->
+    {% block content %}{% endblock %}
+        
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <p class="text-center mb-0">
+                Designed by Xuechun(Harper) Liu | All Rights Reserved
+            </p>
+        </div>
+    </footer>
+    
+    <!-- jQuery -->
+    <!-- https://jquery.com/ -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <!-- https://getbootstrap.com/ -->
+    <script src="{{ url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.bundle.js') }}"></script>
+    <!-- CUSTOM JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block script %}{% endblock %}
+</body>
+</html>
